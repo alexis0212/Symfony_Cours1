@@ -1,0 +1,43 @@
+{# templates/dette/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Dettes de {{ client.Nom }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Dettes de {{ client.Nom }}</h1>
+   <div class="row mb-3">
+    <div class="col">
+        <h5>{{ client.Surname }} - {{ client.Telephone }}</h5>
+    </div>
+    <div class="col text-end">
+        <h5>Total Dette: {{ totalMontant }}</h5>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Montant</th>
+            <th>Montant payé</th>
+            <th>Montant restant</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dette in dettes %}
+            <tr>
+                <td>{{ dette.date|date('Y-m-d') }}</td>
+                <td>{{ dette.montant }}</td>
+                <td>{{ dette.montantPaye }}</td>
+                <td>{{ dette.montantRestant }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4" class="text-center">Aucune dette trouvée.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+{% endblock %}

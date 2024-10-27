@@ -1,0 +1,33 @@
+{# templates/client/create.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer Client{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Créer Client</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" name="nom" id="nom" required>
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" name="prenom" id="prenom" required>
+        </div>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" class="form-control" name="surname" id="surname" required>
+        </div>
+        <div class="mb-3">
+            <label for="telephone" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" name="telephone" id="telephone" required>
+        </div>
+        <div class="mb-3">
+            <label for="adress" class="form-label">Adresse</label>
+            <textarea class="form-control" name="adress" id="adress" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </form>
+</div>
+{% endblock %}

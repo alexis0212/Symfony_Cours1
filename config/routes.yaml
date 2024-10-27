@@ -1,5 +1,22 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+# config/routes.yaml
+
+client_index:
+    path: /clients
+    controller: App\Controller\ClientController::index
+
+client_create:
+    path: /clients/create
+    controller: App\Controller\ClientController::create
+
+client_show:
+    path: /clients/{id}
+    controller: App\Controller\ClientController::show
+
+dette_index:
+    path: /clients/{id}/dettes
+    controller: App\Controller\DetteController::index
+
+client_delete:
+    path: /clients/delete/{id}
+    controller: App\Controller\ClientController::delete
+    methods: POST

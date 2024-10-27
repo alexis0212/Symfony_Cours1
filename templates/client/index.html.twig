@@ -1,0 +1,56 @@
+{# templates/client/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Clients</h1>
+    <a href="{{ path('client_create') }}" class="btn btn-primary mb-3">Créer</a>
+
+    <form method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="surname" class="form-control" placeholder="Surname" aria-label="Surname">
+            <input type="text" name="telephone" class="form-control" placeholder="Téléphone" aria-label="Téléphone">
+            <button class="btn btn-outline-secondary" type="submit">OK</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th>Surname</th>
+                <th>Adresse</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>{{ client.Nom }}</td>
+                <td>{{ client.Prenom }}</td>
+                <td>
+    {{ client.Telephone }}
+</td>
+<td>
+    {{ client.Surname }}
+</td>
+<td>
+    {{ client.Adress }}
+</td>
+<td>
+    <a href="{{ path('dette_index', { id: client.id }) }}" class="btn btn-info">Dettes</a>
+    <form action="{{ path('client_delete', { id: client.id }) }}" method="post" style="display:inline;">
+        <button class="btn btn-danger">Supprimer</button>
+    </form>
+</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
